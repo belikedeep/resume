@@ -1,0 +1,192 @@
+\documentclass[a4paper,10pt]{article}
+
+% Packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.34in, right=0.34in, top=0.22in, bottom=0.22in]{geometry}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{iftex}
+\usepackage{type1cm}
+
+% Font setting: Open Sans (neutral, highly legible font with perfectly aligned lining digits)
+\ifPDFTeX
+  \usepackage[default, scale=0.95]{opensans}
+\else
+  \usepackage{fontspec}
+  \setmainfont[Numbers=Lining]{Open Sans}
+  \setsansfont[Numbers=Lining]{Open Sans}
+\fi
+
+% Colors matching official IITKGP ERP Portal (soft light blue fill & lighter borders)
+\definecolor{bannerblue}{RGB}{232, 240, 250}
+\definecolor{bordergray}{RGB}{180, 190, 205}
+
+% Page style setup
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Custom section banner command with top & bottom borders (0 errors in Overleaf)
+\newcommand{\cvsection}[1]{%
+  \vspace{0pt}%
+  \par\noindent%
+  {\color{bordergray}\hrule height 1pt}%
+  \par\nobreak\vskip 0pt%
+  \begingroup%
+  \setlength{\fboxsep}{3.5pt}%
+  \colorbox{bannerblue}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\centering\textbf{\fontsize{9pt}{10.5pt}\selectfont #1}}}%
+  \endgroup%
+  \par\nobreak\vskip 0pt%
+  {\color{bordergray}\hrule height 1pt}%
+  \par\vspace{6.5pt}%
+}
+
+% Item header helper for experience, internships & projects
+\newcommand{\resumeItemHeader}[2]{%
+  \vspace{1pt}%
+  \noindent%
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{\fontsize{9pt}{10.5pt}\selectfont #1} & \textbf{\fontsize{9pt}{10.5pt}\selectfont #2} \\
+  \end{tabular*}\par\vspace{0pt}%
+}
+
+% Bullet list setup matching ERP exact tight spacing
+\setlist[itemize]{leftmargin=0.08in, labelsep=2pt, itemsep=1.5pt, topsep=1.5pt, parsep=0pt, partopsep=0pt}
+\renewcommand\labelitemi{\raisebox{0.15ex}{\tiny$\bullet$}}
+
+\begin{document}
+\fontsize{9.5pt}{11.5pt}\selectfont
+% ==================== HEADER ====================
+\noindent
+\begin{minipage}[c]{0.09\textwidth}
+    \includegraphics[width=1.30cm]{iitkgp.png}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.89\textwidth}
+    \centering
+    {\fontsize{14pt}{16.5pt}\selectfont \textbf{DEEPAK MARDI}} \\[4pt]
+    {\fontsize{8.5pt}{10.5pt}\selectfont \href{mailto:deepakmardi22@gmail.com}{\underline{deepakmardi22@gmail.com}} \ \textbar\ +91 79876 00067 \ \textbar\ \href{https://github.com/belikedeep}{\underline{github.com/belikedeep}} \ \textbar\ \href{https://linkedin.com/in/deepakmardi}{\underline{linkedin.com/in/deepakmardi}}}
+\end{minipage}
+
+\vspace{3pt}
+
+% ==================== EDUCATION ====================
+\cvsection{EDUCATION}
+\noindent
+\fontsize{8.5pt}{10pt}\selectfont
+\begin{tabularx}{\textwidth}{@{}p{1.2cm} p{8.8cm} >{\raggedleft\arraybackslash}X@{}}
+\textbf{Year} & \textbf{Degree/Exam} & \textbf{Institute} \\
+2026 & B.Tech.(Hons.) \& M.Tech. Dual Degree in Metallurgical and Materials Engineering & IIT Kharagpur \\
+\end{tabularx}
+
+\vspace{0.5pt}
+
+% ==================== WORK EXPERIENCE ====================
+\cvsection{WORK EXPERIENCE}
+
+\resumeItemHeader{Software Developer - Pruning Labs}{Jan 2026 -- Present}
+\begin{itemize}
+    \item Built full-stack SaaS platforms using Next.js, TypeScript, and PostgreSQL, deploying scalable serverless edge handlers on Cloudflare Workers
+    \item Implemented multi-tenant Role-based access control (RBAC) authorization and database schema migrations in PostgreSQL
+    \item Configured GitHub Actions CI/CD workflows for automated TypeScript compilation, ESLint validation, and automated edge worker rollouts
+\end{itemize}
+
+\vspace{0.5pt}
+
+\resumeItemHeader{Full Stack Software Engineer - Epek Software Solutions}{Oct 2025 -- Jan 2026}
+\begin{itemize}
+    \item Decreased MongoDB query latency by 97\% (850ms to ~25ms) across high-concurrency endpoints by refactoring aggregation pipelines and compound indexes, reducing database CPU overhead and accelerating customer-facing analytics dashboard load times
+    \item Scaled dealer-locator maps to 50,000+ locations using Leaflet spatial clustering and geofencing, maintaining 60 FPS viewport rendering, cutting initial payload size by 65\%, and accelerating interactive location discovery for enterprise users
+    \item Integrated real-time invoice synchronization with QuickBooks via event-driven webhooks, featuring exponential backoff and retry handling to eliminate transaction sync delays, guarantee idempotent payload processing, and maintain high audit accuracy
+    \item Automated transactional invoice delivery using SendGrid email workflows with delivery status tracking, accelerating billing cycles and reducing outstanding accounts receivable across high-volume enterprise accounts with automated error alerts
+\end{itemize}
+
+\vspace{0.5pt}
+
+\resumeItemHeader{Co-founder \& Full-Stack Developer - Arcs Design Studio}{Jan 2025 -- Oct 2025}
+\begin{itemize}
+    \item Engineered secure authentication flows across client applications using JWT session handling, multi-tenant RBAC, and OAuth2 social providers
+    \item Built and deployed production web applications using Next.js, Node.js, and PostgreSQL, containerizing backend services with Docker on AWS EC2
+    \item Automated microservice deployments on AWS EC2 using Docker containerization and GitHub Actions CI/CD pipelines with automated test suites
+    \item Maintained production deployment pipelines on AWS EC2, configuring Nginx reverse proxies, SSL certificates, and Docker Compose configurations
+\end{itemize}
+
+\vspace{0.5pt}
+
+% ==================== INTERNSHIPS ====================
+\cvsection{INTERNSHIPS}
+
+\resumeItemHeader{Software Development Intern - Epek Software Solutions}{May 2024 -- Jan 2025}
+\begin{itemize}
+    \item Engineered radius-based location search services using MERN stack, processing high-concurrency client API requests with sub-50ms latency
+    \item Optimized MongoDB 2dsphere spatial queries and aggregation pipelines, significantly accelerating geospatial query execution and throughput
+    \item Integrated Leaflet for interactive location discovery, client-side marker clustering, and real-time spatial data visualization on web maps
+    \item Containerized backend microservices using Docker and Docker Compose, establishing reproducible local development environments for engineers
+    \item Automated document processing for a social platform by developing a Python document parsing and text classification pipeline with validation
+\end{itemize}
+
+\vspace{0.5pt}
+
+% ==================== PROJECTS ====================
+\cvsection{PROJECTS}
+
+\resumeItemHeader{SigNoz - Open Source Contribution}{\href{https://github.com/SigNoz/signoz}{\underline{github.com/SigNoz/signoz}}}
+\begin{itemize}
+    \item Resolved validation bypass in user onboarding flow by replacing asynchronous blur checks with strict pre-submission form validation logic
+    \item Refactored authentication form state in React and TypeScript to derive validation reactively, eliminating redundant handlers and state bugs
+\end{itemize}
+
+\vspace{0.5pt}
+
+\resumeItemHeader{Doist SDK - Open Source Contribution}{\href{https://github.com/Doist}{\underline{github.com/Doist}}}
+\begin{itemize}
+    \item Patched payload serialization and type safety in the Doist TypeScript SDK, improving API response handling across distributed endpoints
+    \item Authored automated unit test suites using Jest covering malformed API responses, HTTP rate limits, and asynchronous network failure states
+\end{itemize}
+
+\vspace{0.5pt}
+
+\resumeItemHeader{Motivecho - Competitive Intelligence SaaS}{\href{https://motivecho.com}{\underline{motivecho.com}}}
+\begin{itemize}
+    \item Built distributed web crawlers using Cloudflare Workers, Queues, and Modal serverless Python (Playwright) to orchestrate headless browser sessions and capture full-page DOM snapshots across target enterprise domains with automated session recovery
+    \item Engineered a noise-suppression diff engine using Jaccard similarity and regex tokenizers to filter dynamic CSS hashes, relative timestamps, and cookie banners, decreasing false-positive change alerts by 92\% across recurring competitor crawls
+    \item Implemented automated change-detection pipelines with AI summarization, delivering real-time notification alerts on competitor product changes
+    \item Configured asynchronous crawl pipelines with dead-letter queue (DLQ) retry policies and distributed rate-limiting to prevent target IP bans
+\end{itemize}
+
+\vspace{0.5pt}
+
+\resumeItemHeader{MicroMart - Distributed Microservices Backend}{\href{https://github.com/belikedeep/MicroMart}{\underline{github.com/belikedeep/MicroMart}}}
+\begin{itemize}
+    \item Built an event-driven microservices backend in TypeScript using NATS Streaming with queue groups and manual ACKs for at-least-once delivery
+    \item Enforced Optimistic Concurrency Control using Mongoose versioning and sequential event querying to eliminate out-of-order race conditions
+    \item Built a distributed worker using Redis and Bull Queue enforcing 15-minute order reservation locks and publishing auto-cancellation events
+    \item Created a shared NPM library for typed events and error middlewares, authoring automated integration test suites with Jest and Supertest
+\end{itemize}
+
+\vspace{0.5pt}
+
+\resumeItemHeader{Snapterra - Workflow \& Asset Dashboard}{\href{https://snapterra.vercel.app}{\underline{snapterra.vercel.app}}}
+\begin{itemize}
+    \item Built a digital asset dashboard featuring multi-part media uploads, smart link vaults, and interactive drag-and-drop Kanban workflow boards
+    \item Integrated Groq LLM APIs to automatically extract metadata, generate document summaries, and classify incoming media assets with tagging
+    \item Developed optimistic UI mutations using TanStack Query and integrated Stripe webhooks to automate subscription paywall access provisioning
+\end{itemize}
+
+\vspace{0.5pt}
+
+% ==================== SKILLS ====================
+\cvsection{SKILLS}
+\begin{itemize}
+    \item \textbf{Languages}: TypeScript, JavaScript, Python, Go, SQL, Bash
+    \item \textbf{Frameworks \& Libraries}: React, Next.js, Node.js, Express, TanStack Query, Leaflet, Tailwind CSS, Jest, Supertest
+    \item \textbf{Databases, Cloud \& DevOps}: PostgreSQL, MongoDB, Redis, NATS, AWS (EC2, S3), Cloudflare Workers, Docker, Git, CI/CD, Nginx
+\end{itemize}
+
+\vspace{0.5pt}
+
+\end{document}
+
